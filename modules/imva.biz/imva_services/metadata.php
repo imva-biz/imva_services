@@ -41,7 +41,7 @@ $sMetadataVersion = '1.1';
  */
 $aModule = array(
 	'id'			=> 'imva_services',
-	'title'			=> '<img src="../modules/imva.biz/imva_services/out/src/imva-Logo-12.png" alt=".iI" title="imva.biz" /> Module Services (Build 20130703)',
+	'title'			=> '<img src="../modules/imva.biz/imva_services/out/src/imva-Logo-12.png" alt=".iI" title="imva.biz" /> Module Services (Build 20130704)',
 	'description'	=> array(
 		'en'	=>	'<p>imva.biz Services for modules. Provides several functionalities that are used by other modules of the manufacturer.</p>',
 		'de'	=>	'<p>imva.biz-Dienste f&uuml;r Module. Stellt eine Reihe von Funktionalit&auml;ten bereit, auf die andere Module des Herstellers zugreifen k&ouml;nnen.</p>',
