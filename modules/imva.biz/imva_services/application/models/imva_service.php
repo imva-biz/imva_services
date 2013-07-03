@@ -28,8 +28,8 @@
  * (c) 2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  * 
- * 13/6/29-7/2
- * V 0.1.2
+ * 13/6/29-7/3
+ * V 0.1.2.2
  * 
  */
 
@@ -40,7 +40,7 @@ class imva_service extends oxUbase{
 	 * 
 	 * @return integer
 	 */
-	public $build	= 20130702;
+	public $build	= 20130704;
 	
 	
 	
@@ -57,18 +57,46 @@ class imva_service extends oxUbase{
 	
 	
 	/**
+	 * Initialize. Compares the build number, if given.
+	 * 
+	 * @param int
+	 */
+	public function init($iBuildNo = null)
+	{
+		if ($iBuildNo > $this->build){
+			echo '<i>SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST'.$iBuildNo.' REQUIRED)<br />
+					(imva.biz Module Services)</i>';			
+		}
+	}
+	
+	
+	
+	/**
 	 * Action getter, e.g. for usage with forms.
 	 * Returns the content of "action".
 	 *
 	 * @return string
 	 */
 	public function getAction(){
-		if ($this->getConfig()->getParameter('action') || $this->getConfig()->getParameter('action') != ''){
-			return $this->getConfig()->getParameter('action');
+		if ($this->req('action') || $this->req('action') != ''){
+			return $this->req('action');
 		}
 		else{
 			return false;
 		}
+	}
+	
+	
+	/**
+	 * Param getter
+	 * Returns the content of a named POST, REQUEST or GET parameter.
+	 * 
+	 * @param string
+	 * @return string
+	 */
+	public function req($sParamName)
+	{
+		return $this->getConfig()->getParameter($sParamName);
 	}
 	
 	

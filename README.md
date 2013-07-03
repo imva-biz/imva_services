@@ -1,5 +1,5 @@
 imva_services
-==================
+=============
 Global service provider for imva.biz modules for the OXID eShop.
 
 *	Copy the contents of /modules/ to your shop's module directory.
@@ -7,3 +7,7 @@ Global service provider for imva.biz modules for the OXID eShop.
 *	In the section below click "activate".
 
 You are free to use this module with your own modules. See the source for details.
+
+
+== System Requirements ==
+*	Created for OXID eShop 4.6 and higher. (CE, PE, EE)
