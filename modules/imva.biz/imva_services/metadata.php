@@ -30,7 +30,7 @@
  * @author Johannes Ackermann
  *
  * 13/6/28-7/3
- * V 0.1.2.1
+ * V 0.1.2.2
  *
  */
 
@@ -47,7 +47,7 @@ $aModule = array(
 		'de'	=>	'<p>imva.biz-Dienste f&uuml;r Module. Stellt eine Reihe von Funktionalit&auml;ten bereit, auf die andere Module des Herstellers zugreifen k&ouml;nnen.</p>',
 	),
 	'thumbnail'		=> 'out/src/imva-Logo-90.png',
-	'version'		=> '0.1.2.1',
+	'version'		=> '0.1.2.2',
 	'author'		=> 'Johannes Ackermann',
 	'url'			=> 'http://imva.biz',
 	'email' 		=> 'imva@imva.biz',
