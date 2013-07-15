@@ -28,8 +28,8 @@
  * (c) 2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  * 
- * 13/6/28-7/2
- * V 0.1
+ * 13/6/28-7/15
+ * V 0.2
  * 
  */
 
@@ -57,7 +57,7 @@ class imva_fileservice extends oxUbase
 	public function load($sPath)
 	{
 		$this->_sPath = $sPath;
-		$this->_oFile = fopen($this->_sPath,'w');
+		$this->_oFile = fopen($this->_sPath,'w+');
 		
 		if (!$this->_oFile){
 			echo '<span class="msg err">Error creating File Object from Path: '.$sPath.' (IMVA_FILESERVICE, '.__LINE__.')</span>';
@@ -69,8 +69,8 @@ class imva_fileservice extends oxUbase
 	/**
 	 * Write file
 	 * 
-	 * @param unknown $sContent
-	 * @param unknown $sPath
+	 * @param string $sContent
+	 * @param object $sPath
 	 */
 	public function writeFile($sContent)
 	{
@@ -81,6 +81,10 @@ class imva_fileservice extends oxUbase
 	
 	/**
 	 * Destruct
+	 * Close file handle.
+	 * 
+	 * @param null
+	 * @return null
 	 */
 	public function __destruct()
 	{
