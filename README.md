@@ -11,4 +11,4 @@ You are free to use this module with your own modules. See the source for detail
 
 
 == System Requirements ==
-*	Created for OXID eShop 4.6 and higher. (CE, PE, EE)
+*	Created for OXID eShop 4.7 and higher. (CE, PE, EE)

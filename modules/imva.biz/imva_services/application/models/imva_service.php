@@ -97,7 +97,7 @@ class imva_service extends oxUbase{
 	 */
 	public function req($sParamName)
 	{
-		return $this->getConfig()->getParameter($sParamName);
+		return $this->getConfig()->getRequestParameter($sParamName);
 	}
 	
 	
