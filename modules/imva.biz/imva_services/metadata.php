@@ -1,7 +1,7 @@
 <?php
 
 /**
- * IMVA Module Services
+ * imva.biz Module Services
  * 
  *
  *
@@ -39,15 +39,15 @@
  * 
  * 
  * 
- * (EULA-13/7)
+ * (EULA-13/7-OS)
  * 
  * 
  *
  * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-7/19
- * V 0.1.2.5
+ * 13/6/28-8/13
+ * V 0.1.4
  *
  */
 
@@ -59,14 +59,14 @@ $sMetadataVersion = '1.1';
 $aModule = array(
 	'id'			=> 'imva_services',
 	'title'			=> '<img src="../modules/imva.biz/imva_services/out/src/imva-Logo-12.png" alt=".iI" title="imva.biz" />
-		Module Services (Build 20130718)',
+		Module Services (Build 20130813)',
 	'description'	=> array(
 		'en'	=>	'<p>imva.biz Services for modules. Provides several functionalities that are used by other modules of the manufacturer.</p>',
 		'de'	=>	'<p>imva.biz-Dienste f&uuml;r Module. Stellt eine Reihe von Funktionalit&auml;ten bereit, auf die andere Module des Herstellers zugreifen k&ouml;nnen.<br />
 					<a href="http://imva.biz/oxid/module/module_services" style="color:#06c; font-weight:bold;">Informationen &uuml;ber diese Erweiterung</a></p>',
 	),
 	'thumbnail'		=> 'out/src/imva-Logo-90.png',
-	'version'		=> '0.1.2.3',
+	'version'		=> '0.1.4',
 	'author'		=> 'Johannes Ackermann',
 	'url'			=> 'http://imva.biz',
 	'email' 		=> 'imva@imva.biz',

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * IMVA Module Services: File Service
+ * imva.biz Module Services: File Service
  * 
  *
  *
@@ -39,15 +39,15 @@
  * 
  * 
  * 
- * (EULA-13/7)
+ * (EULA-13/7-OS)
  * 
  * 
  *
  * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-7/19
- * V 0.1.2.5
+ * 13/6/28-8/2
+ * V 0.1.3
  *
  */
 

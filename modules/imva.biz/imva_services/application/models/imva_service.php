@@ -1,7 +1,7 @@
 <?php
 
 /**
- * IMVA Module Services: Main
+ * imva.biz Module Services: Main
  * 
  *
  *
@@ -39,15 +39,15 @@
  * 
  * 
  * 
- * (EULA-13/7)
+ * (EULA-13/7-OS)
  * 
  * 
  *
  * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-7/19
- * V 0.1.2.5
+ * 13/6/28-8/13
+ * V 0.1.4
  *
  */
 
@@ -58,7 +58,7 @@ class imva_service extends oxUbase{
 	 * 
 	 * @return integer
 	 */
-	public $build	= 20130719;
+	public $build	= 20130813;
 	
 	
 	
@@ -76,11 +76,14 @@ class imva_service extends oxUbase{
 	
 	/**
 	 * Initialize. Compares the build number, if given.
+	 * To be extended later...
 	 * 
 	 * @param int
 	 */
 	public function init($iBuildNo = null)
 	{
+		parent::init();
+		
 		if ($iBuildNo > $this->build){
 			echo '<i>SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST'.$iBuildNo.' REQUIRED)<br />
 					(imva.biz Module Services)</i>';			
@@ -150,8 +153,12 @@ class imva_service extends oxUbase{
 			$sSqlRequest = 'SELECT value FROM imva_config WHERE module_name = "'.$sModuleName.'" AND param = "'.$sParam.'"';
 			return oxDb::getDb(true)->getone($sSqlRequest);
 		}
-		else{
+		elseif ($sModuleName and !$sParam){
+			$this->log($sModuleName,'readImvaConfig','EMPTY PARAM','','','');
 			return false;
+		}
+		else{
+			$this->log('UNKNOWN','readImvaConfig','EMPTY PARAM','','','');
 		}
 	}
 	
@@ -163,8 +170,8 @@ class imva_service extends oxUbase{
 	 *
 	 * @return null
 	 */
-	public function log($sModuleName,$action,$d1 = '',$d2 = '',$d3 = '',$d4 = '',$p = ''){
-		$sSqlRequest = "INSERT INTO imva_oxidmodules (mod_name, action, data1, data2, data3, data4, param, timestamp) VALUES ('imva_oxid2cr3', '".$sModuleName."', '".$d1."', '".$d2."', '".$d3."', '".$d4."', '".$p."', CURRENT_TIMESTAMP)";
+	public function log($sModuleName,$sAction,$d1 = '',$d2 = '',$d3 = '',$d4 = '',$p = ''){
+		$sSqlRequest = "INSERT INTO imva_oxidmodules (mod_name, action, data1, data2, data3, data4, param, timestamp) VALUES ('".$sModuleName."', '".$sAction."', '".$d1."', '".$d2."', '".$d3."', '".$d4."', '".$p."', CURRENT_TIMESTAMP)";
 		oxDb::getDb(true)->execute($sSqlRequest);
 	}
 	
@@ -183,5 +190,20 @@ class imva_service extends oxUbase{
 			$sRootDir = $sRootDir.'/';
 		}
 		return $sRootDir;
+	}
+	
+	
+	
+	/**
+	 * Get Module Version by Module ID
+	 * 
+	 * @param string
+	 * @return string
+	 */
+	public function getModuleVersion($sModuleId)
+	{
+		$oTmpModuleObj = oxNew('oxmodule');
+		$oTmpModuleObj->load($sModuleId);
+		return $oTmpModuleObj->getInfo('version');
 	}
 }
