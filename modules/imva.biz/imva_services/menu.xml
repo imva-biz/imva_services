@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<OX>
+    <OXMENU id="imva_modules_group">
+        <MAINMENU id="imva_services_menu">
+             <SUBMENU id="imva_services_information" cl="imva_services_admin" rights="malladmin" disableForDemoShop="0" />
+        </MAINMENU>
+    </OXMENU>
+</OX>

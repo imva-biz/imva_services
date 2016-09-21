@@ -7,7 +7,7 @@
  *
  * For redistribution in the provicer's network only.
  *
- * Weitergabe außerhalb des Anbieternetzwerkes verboten.
+ * Weitergabe auï¿½erhalb des Anbieternetzwerkes verboten.
  * 
  *
  *
@@ -24,16 +24,16 @@
  * 
  * 
  * Diese Software ist geistiges Eigentum von imva.biz respektive ihres Autors und ist durch das
- * Urheberrecht geschützt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
+ * Urheberrecht geschï¿½tzt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
  * angeboten.
  * 
- * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bedürfnisse anzupassen.
+ * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bedï¿½rfnisse anzupassen.
  * 
- * Jegliche Modifikation, Vervielfältigung, Redistribution, Übertragung zum Zwecke der
- * Weiterentwicklung außerhalb der Netzwerke des Anbieters ist untersagt und stellt einen Verstoß
+ * Jegliche Modifikation, Vervielfï¿½ltigung, Redistribution, ï¿½bertragung zum Zwecke der
+ * Weiterentwicklung auï¿½erhalb der Netzwerke des Anbieters ist untersagt und stellt einen Verstoï¿½
  * gegen die Lizenzvereinbarung dar.
  *
- * Mit der Übernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
+ * Mit der ï¿½bernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
  * festgehaltenen Bedingungen. Der Bruch dieser Bedingungen kann Schadensersatzforderungen nach
  * sich ziehen.
  * 
@@ -59,22 +59,42 @@ $sMetadataVersion = '1.1';
 $aModule = array(
 	'id'			=> 'imva_services',
 	'title'			=> '<img src="../modules/imva.biz/imva_services/out/src/imva-Logo-12.png" alt=".iI" title="imva.biz" />
-		Module Services (Build 20130813)',
+		Module Services (Build 20160921)',
 	'description'	=> array(
 		'en'	=>	'<p>imva.biz Services for modules. Provides several functionalities that are used by other modules of the manufacturer.</p>',
 		'de'	=>	'<p>imva.biz-Dienste f&uuml;r Module. Stellt eine Reihe von Funktionalit&auml;ten bereit, auf die andere Module des Herstellers zugreifen k&ouml;nnen.<br />
 					<a href="http://imva.biz/oxid/module/module_services" style="color:#06c; font-weight:bold;">Informationen &uuml;ber diese Erweiterung</a></p>',
 	),
 	'thumbnail'		=> 'out/src/imva-Logo-90.png',
-	'version'		=> '0.1.4',
+	'version'		=> '0.3',
 	'author'		=> 'Johannes Ackermann',
-	'url'			=> 'http://imva.biz',
+	'url'			=> 'https://imva.biz',
 	'email' 		=> 'imva@imva.biz',
 	'extend'		=> array(
-		'oxviewconfig'				=>	'imva.biz/imva_services/core/imva_oxviewconfig',
+		'oxviewconfig'              =>	'imva.biz/imva_services/core/imva_services_oxviewconfig',
 	),
 	'files' => array(
-		'imva_service'				=>	'imva.biz/imva_services/application/models/imva_service.php',
-		'imva_fileservice'			=>	'imva.biz/imva_services/application/models/imva_fileservice.php',
+		'imva_services_main'        =>	'imva.biz/imva_services/Model/imva_services_main.php',
+		'imva_services_config'      =>	'imva.biz/imva_services/Model/imva_services_config.php',
+		'imva_services_fileservice'	=>	'imva.biz/imva_services/Model/imva_services_fileservice.php',
+        'imva_services_dbservice'	=>	'imva.biz/imva_services/Model/imva_services_dbservice.php',
+
+        // Admin View Controller
+        'imva_services_admin'		=>	'imva.biz/imva_services/Controller/admin/imva_services_admin.php',
 	),
+    'templates' => array(
+        'imva_services_admin.tpl'   =>	'imva.biz/imva_services/View/admin/tpl/imva_services_admin.tpl',
+    ),
+    'blocks'	=>	array(
+        array(
+            'template' => 'imva_services_admin.tpl',
+            'block'    => 'imva_header',
+            'file'     => 'View/blocks/imva_header.tpl'
+        ),
+        array(
+            'template' => 'imva_services_admin.tpl',
+            'block'    => 'imva_footer',
+            'file'     => 'View/blocks/imva_footer.tpl'
+        ),
+    ),
 );

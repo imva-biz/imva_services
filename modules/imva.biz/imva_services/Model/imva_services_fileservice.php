@@ -7,7 +7,7 @@
  *
  * For redistribution in the provicer's network only.
  *
- * Weitergabe auﬂerhalb des Anbieternetzwerkes verboten.
+ * Weitergabe au√üerhalb des Anbieternetzwerkes verboten.
  * 
  *
  *
@@ -24,16 +24,16 @@
  * 
  * 
  * Diese Software ist geistiges Eigentum von imva.biz respektive ihres Autors und ist durch das
- * Urheberrecht gesch¸tzt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
+ * Urheberrecht gesch√ºtzt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
  * angeboten.
  * 
- * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bed¸rfnisse anzupassen.
+ * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bed√ºrfnisse anzupassen.
  * 
- * Jegliche Modifikation, Vervielf‰ltigung, Redistribution, ‹bertragung zum Zwecke der
- * Weiterentwicklung auﬂerhalb der Netzwerke des Anbieters ist untersagt und stellt einen Verstoﬂ
+ * Jegliche Modifikation, Vervielf√§ltigung, Redistribution, √úbertragung zum Zwecke der
+ * Weiterentwicklung au√üerhalb der Netzwerke des Anbieters ist untersagt und stellt einen Versto√ü
  * gegen die Lizenzvereinbarung dar.
  *
- * Mit der ‹bernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
+ * Mit der √úbernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
  * festgehaltenen Bedingungen. Der Bruch dieser Bedingungen kann Schadensersatzforderungen nach
  * sich ziehen.
  * 
@@ -46,12 +46,11 @@
  * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-8/2
- * V 0.1.3
+ * 13/6/28-16/9/21
  *
  */
 
-class imva_fileservice extends oxUbase
+class imva_services_fileservice extends oxUbase
 {
 	/**
 	 * File path

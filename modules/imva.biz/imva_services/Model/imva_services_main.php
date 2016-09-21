@@ -7,7 +7,7 @@
  *
  * For redistribution in the provicer's network only.
  *
- * Weitergabe außerhalb des Anbieternetzwerkes verboten.
+ * Weitergabe auÃŸerhalb des Anbieternetzwerkes verboten.
  * 
  *
  *
@@ -24,16 +24,16 @@
  * 
  * 
  * Diese Software ist geistiges Eigentum von imva.biz respektive ihres Autors und ist durch das
- * Urheberrecht geschützt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
+ * Urheberrecht geschÃ¼tzt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
  * angeboten.
  * 
- * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bedürfnisse anzupassen.
+ * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre BedÃ¼rfnisse anzupassen.
  * 
- * Jegliche Modifikation, Vervielfältigung, Redistribution, Übertragung zum Zwecke der
- * Weiterentwicklung außerhalb der Netzwerke des Anbieters ist untersagt und stellt einen Verstoß
+ * Jegliche Modifikation, VervielfÃ¤ltigung, Redistribution, Ãœbertragung zum Zwecke der
+ * Weiterentwicklung auÃŸerhalb der Netzwerke des Anbieters ist untersagt und stellt einen VerstoÃŸ
  * gegen die Lizenzvereinbarung dar.
  *
- * Mit der Übernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
+ * Mit der Ãœbernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
  * festgehaltenen Bedingungen. Der Bruch dieser Bedingungen kann Schadensersatzforderungen nach
  * sich ziehen.
  * 
@@ -43,34 +43,21 @@
  * 
  * 
  *
- * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
+ * (c) 2012-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-8/13
- * V 0.1.4
+ * 13/6/28-16/9/21
  *
  */
 
-class imva_service extends oxUbase{
+class imva_services_main extends oxUbase{
 	/**
 	 * Build No.
 	 * Check this number in modules to make sure the version of the imva service provider is capable of the functions to be used.
 	 * 
 	 * @return integer
 	 */
-	public $build	= 20130813;
-	
-	
-	
-	/**
-	 * __construct
-	 * For later usage.
-	 *
-	 * @return null
-	 */
-	public function __construct(){
-		parent::__construct();
-	}
+	public $build	= 20160921;
 	
 	
 	
@@ -80,12 +67,10 @@ class imva_service extends oxUbase{
 	 * 
 	 * @param int
 	 */
-	public function init($iBuildNo = null)
+	public function requestBuild($iBuildNo = null)
 	{
-		parent::init();
-		
-		if ($iBuildNo > $this->build){
-			echo '<i>SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST'.$iBuildNo.' REQUIRED)<br />
+        if ($iBuildNo > $this->build){
+			echo '<i>SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST '.$iBuildNo.' REQUIRED)<br />
 					(imva.biz Module Services)</i>';			
 		}
 	}
@@ -98,11 +83,15 @@ class imva_service extends oxUbase{
 	 *
 	 * @return string
 	 */
-	public function generateSecretKey($iLength)
+	public function generateSecretKey($length)
 	{
 		srand ((double)microtime()*1000000);
 		$rndA = rand();
-		return substr(md5($rndA),0,$iLength);
+
+        return substr(
+            md5($rndA),
+            0,
+            $length);
 	}
 	
 	
@@ -144,9 +133,10 @@ class imva_service extends oxUbase{
 	 * 				-	Parameter
 	 *
 	 * @param string
+	 * @param string
 	 * @return string
 	 */
-	function readImvaConfig($sModuleName = null,$sParam = null)
+	function readImvaConfig($sModuleName = null, $sParam = null)
 	{
 		if ($sModuleName and $sParam)
 		{
