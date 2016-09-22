@@ -59,11 +59,11 @@ class imva_services_oxviewconfig extends imva_services_oxviewconfig_parent
 	/**
 	 * Returns true, if the active class is part of the checkout procedure.
 	 * 
-	 * @param boolean Treat basket and Thankyou Page as checkout classes.
+	 * @param boolean Strict mode: treat basket and Thankyou Page as checkout classes.
      * @return boolean;
 	 */
 	public function imva_isCheckout($strict = null){
-        return in_array(
+	    return in_array(
             $this->getActiveClassName(),
             $this->_getCheckoutClasses($strict)
         );
@@ -79,7 +79,7 @@ class imva_services_oxviewconfig extends imva_services_oxviewconfig_parent
      */
 	private function _getCheckoutClasses($strict = null)
     {
-        if ($strict != null)
+        if (($strict === null) || ($strict === false))
         {
             return [
                 'user',
