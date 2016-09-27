@@ -53,22 +53,32 @@
 
 $sLangName  = "Deutsch";
 $aLang = array(
-		'charset'										=>	'UTF-8',
-		
-		// Group
-		'imva_modules_group'							=>	'imva.biz-Module',
-	
-		// Titles
-		'imva_services_menu'							=>	'Kernmodul',
-		'imva_services_information'						=>	'Informationen',
-		'imva_services_settings'						=>	'Einstellungen',
-		'imva_services_run'								=>	'Ausf&uuml;hren',
-		
-		// Admin
-		'imva_services_admin_title'						=>	'imva.biz-Kernmodul mit Diensten',
-		'imva_services_admin_desc'						=>	'Dieses Modul stellt Dienste und Methoden bereit, die von anderen Modulen ben&ouml;tigt werden.<br>
-															Somit werden Kernkomponenten zentral und von darauf aufsetzenden Modulen unabh&auml;ngig verwaltet
-															und der Wartungsaufwand f&uuml;r andere Module erleichtert.<br>
-															Wenn Sie selbst Module f&uuml;r <i>OXID</i> schreiben, k&ouml;nnen Sie dieses Kernmodul mitbenutzen --
-															es ist quelloffen und darf von Ihnen angepasst und nat&uuml;rlich erweitert werden.',
+    'charset'										=>	'UTF-8',
+
+    // Group
+    'imva_modules_group'							=>	'imva.biz-Module',
+
+    // Titles
+    'imva_services'							        =>	'Module Services',
+    'imva_services_menu'							=>	'Kernmodul',
+    'imva_services_information'						=>	'Informationen',
+    'imva_services_settings'						=>	'Einstellungen',
+    'imva_services_run'								=>	'Ausf&uuml;hren',
+
+    // Admin
+    'imva_services_admin_title'						=>	'imva.biz-Kernmodul mit Diensten',
+    'imva_services_admin_desc'						=>	'Dieses Modul stellt Dienste und Methoden bereit, die von anderen Modulen ben&ouml;tigt werden.<br>
+                                                        Somit werden Kernkomponenten zentral und von darauf aufsetzenden Modulen unabh&auml;ngig verwaltet
+                                                        und der Wartungsaufwand f&uuml;r andere Module erleichtert.<br>
+                                                        Wenn Sie selbst Module f&uuml;r <i>OXID</i> schreiben, k&ouml;nnen Sie dieses Kernmodul mitbenutzen --
+                                                        es ist quelloffen und darf von Ihnen angepasst und nat&uuml;rlich erweitert werden.',
+
+    // Settings
+    'SHOP_MODULE_GROUP_main'                        =>  'Hauptgruppe',
+    'SHOP_MODULE_imva_services_logger_level'        =>  'Loglevel',
+    'SHOP_MODULE_imva_services_logger_level_0'      =>  '-aus-',
+    'SHOP_MODULE_imva_services_logger_level_1'      =>  'Fehler',
+    'SHOP_MODULE_imva_services_logger_level_2'      =>  'Fehler und Warnungen',
+    'SHOP_MODULE_imva_services_logger_level_3'      =>  'Fehler, Warnungen und Anmerkungen',
+    'SHOP_MODULE_imva_services_logger_level_4'      =>  'alles',
 );

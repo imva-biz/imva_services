@@ -53,35 +53,11 @@
 
 
 
-class imva_services_admin extends oxAdminView
+class imva_services_admin extends imva_services_adminbase
 {
-	
-	
-	
-	/** @var string Template. */
+
+
+
+    /** @var string Template. */
     protected $_sThisTemplate = 'imva_services_admin.tpl';
-
-
-    /** @var imva_service_main  */
-	public $oSvc = null;
-
-
-
-    /** @var string Module ID  */
-	public $sModuleId = 'imva_services';
-	
-	
-	
-	/**
-	 * Initialize
-	 *
-	 * @return null
-	 */
-	public function init(){
-	    parent::init();
-
-		// Prepare imva.biz Module Service
-		$this->oSvc = oxNew('imva_services_main');
-		$this->oSvc->requestBuild(20160921);
-	}
 }

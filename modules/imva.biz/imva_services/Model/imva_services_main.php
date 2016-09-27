@@ -51,13 +51,24 @@
  */
 
 class imva_services_main extends oxUbase{
+
+
+
 	/**
 	 * Build No.
 	 * Check this number in modules to make sure the version of the imva service provider is capable of the functions to be used.
 	 * 
-	 * @return integer
+	 * @return int
 	 */
-	public $build	= 20160921;
+	public $build	= 20160926;
+
+
+    /**
+     * Build mode no.
+     *
+     * @return int
+     */
+    protected $_workingBuidNo = null;
 	
 	
 	
@@ -70,9 +81,18 @@ class imva_services_main extends oxUbase{
 	public function requestBuild($iBuildNo = null)
 	{
         if ($iBuildNo > $this->build){
-			echo '<i>SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST '.$iBuildNo.' REQUIRED)<br />
-					(imva.biz Module Services)</i>';			
+			$msg = 'SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST '
+                .$iBuildNo.' REQUIRED), imva.biz Core Module.';
+            //echo '<span style="background: blue; color: #fff; font-weight: 700; position: absolute; padding: 0.3em;">'.$msg.'</span>';
+            $this->_logToFile(
+                $msg,
+                1,
+                __LINE__
+            );
 		}
+		else{
+            $this->_workingBuidNo = $iBuildNo;
+        }
 	}
 	
 	
@@ -86,12 +106,12 @@ class imva_services_main extends oxUbase{
 	public function generateSecretKey($length)
 	{
 		srand ((double)microtime()*1000000);
-		$rndA = rand();
 
         return substr(
-            md5($rndA),
+            md5(rand()),
             0,
-            $length);
+            $length
+        );
 	}
 	
 	
@@ -190,10 +210,30 @@ class imva_services_main extends oxUbase{
 	 * @param string
 	 * @return string
 	 */
-	public function getModuleVersion($sModuleId)
+	public function getModuleVersion($sModuleId = null)
 	{
-		$oTmpModuleObj = oxNew('oxmodule');
-		$oTmpModuleObj->load($sModuleId);
-		return $oTmpModuleObj->getInfo('version');
+		if ($sModuleId) {
+            $oTmpModuleObj = oxNew('oxmodule');
+            $oTmpModuleObj->load($sModuleId);
+
+            return $oTmpModuleObj->getInfo('version');
+        }
+
+        return false;
 	}
+
+
+
+	/**
+     * Log to file (core only)
+     *
+     * @param string
+     * @param int
+     * @param int
+     */
+	private function _logToFile($msg,$no,$prio)
+    {
+        $Logger = oxNew('imva_services_logger');
+        $Logger->log($msg,$no,$prio);
+    }
 }

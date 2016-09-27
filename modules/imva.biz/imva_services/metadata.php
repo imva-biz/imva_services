@@ -56,27 +56,31 @@ $sMetadataVersion = '1.1';
 /**
  * Module information
  */
-$aModule = array(
+$aModule = [
 	'id'			=> 'imva_services',
-	'title'			=> '<img src="../modules/imva.biz/imva_services/out/img/imva-Logo-12.png" alt=".iI" title="imva.biz" />
-		Module Services (Build 20160921)',
+	'title'			=>  [
+	    'de'    =>  '<img src="../modules/imva.biz/imva_services/out/img/imva-Logo-12.png" alt=".iI" title="imva.biz" />
+    		imva.biz-Kernmodul',
+        'en'    =>  '<img src="../modules/imva.biz/imva_services/out/img/imva-Logo-12.png" alt=".iI" title="imva.biz" />
+    		imva.biz Core module',
+    ],
 	'description'	=> array(
 		'en'	=>	'<p>imva.biz Services for modules. Provides several functionalities that are used by other modules of the manufacturer.</p>',
 		'de'	=>	'<p>imva.biz-Dienste f&uuml;r Module. Stellt eine Reihe von Funktionalit&auml;ten bereit, auf die andere Module des Herstellers zugreifen k&ouml;nnen.<br />
 					<a href="http://imva.biz/oxid/module/module_services" style="color:#06c; font-weight:bold;">Informationen &uuml;ber diese Erweiterung</a></p>',
 	),
 	'thumbnail'		=> 'out/img/imva-Logo-90.png',
-	'version'		=> '0.4',
+	'version'		=> '0.5.0',
 	'author'		=> 'Johannes Ackermann',
 	'url'			=> 'https://imva.biz',
 	'email' 		=> 'imva@imva.biz',
-	'extend'		=> array(
+	'extend'		=> [
 		'oxviewconfig'              =>	'imva.biz/imva_services/core/imva_services_oxviewconfig',
 
         // Extended models
         'oxarticle'		            =>	'imva.biz/imva_services/Model/imva_services_oxarticle',
-	),
-	'files' => array(
+	],
+	'files' => [
 		// Installer
         'imva_services_setup'       =>  'imva.biz/imva_services/Controller/imva_services_setup.php',
 
@@ -85,23 +89,35 @@ $aModule = array(
 		'imva_services_config'      =>	'imva.biz/imva_services/Model/imva_services_config.php',
 		'imva_services_fileservice'	=>	'imva.biz/imva_services/Model/imva_services_fileservice.php',
         'imva_services_dbservice'	=>	'imva.biz/imva_services/Model/imva_services_dbservice.php',
+        'imva_services_logger'	    =>	'imva.biz/imva_services/Model/imva_services_logger.php',
 
         // Admin View Controller
+        'imva_services_adminbase'	=>	'imva.biz/imva_services/Controller/admin/imva_services_adminbase.php',
         'imva_services_admin'		=>	'imva.biz/imva_services/Controller/admin/imva_services_admin.php',
-	),
-    'templates' => array(
+	],
+    'templates' => [
         'imva_services_admin.tpl'   =>	'imva.biz/imva_services/View/admin/tpl/imva_services_admin.tpl',
-    ),
-    'blocks'	=>	array(
-        array(
+    ],
+    'blocks'	=>	[
+        [
             'template' => 'imva_services_admin.tpl',
             'block'    => 'imva_header',
             'file'     => 'View/blocks/imva_header.tpl'
-        ),
-        array(
+        ],
+        [
             'template' => 'imva_services_admin.tpl',
             'block'    => 'imva_footer',
             'file'     => 'View/blocks/imva_footer.tpl'
-        ),
-    ),
-);
+        ],
+    ],
+    'settings'  =>  [
+        [
+            'group' =>  'main',
+            'name'  =>  'imva_services_logger_level',
+            'type'  =>  'select',
+            'value' =>  '0',
+            'constraints'   => '0|1|2|3|4',
+            'position'  =>  1
+        ],
+    ],
+];

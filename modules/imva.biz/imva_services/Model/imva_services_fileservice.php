@@ -52,8 +52,12 @@
 
 class imva_services_fileservice extends oxUbase
 {
-	/**
+
+
+
+    /**
 	 * File path
+     *
 	 * @return string
 	 */
 	private $_sPath = null;
@@ -62,6 +66,7 @@ class imva_services_fileservice extends oxUbase
 	
 	/**
 	 * Global file object
+     *
 	 * @return object
 	 */
 	private $_oFile = null;
@@ -70,16 +75,39 @@ class imva_services_fileservice extends oxUbase
 	
 	/**
 	 * Load: Prepare the instance
+     *
+     * @param string Path to file.
+     * @return boolean
 	 */
-	public function load($sPath)
+	public function load($path)
 	{
-		$this->_sPath = $sPath;
-		$this->_oFile = fopen($this->_sPath,'w+');
+		$this->_sPath = $path;
+		$this->_oFile = fopen(
+		    $this->_sPath,
+            'w+'
+        );
 		
-		if (!$this->_oFile){
-			echo '<span class="msg err">Error creating File Object from Path: '.$sPath.' (IMVA_FILESERVICE, '.__LINE__.')</span>';
+		if (!$this->getFile()){
+			echo '<span class="msg err">Error creating File Object from Path: '
+                .$path.' (IMVA_SERVICES_FILESERVICE, '.__LINE__.')</span>';
+            return false;
 		}
 	}
+
+
+    /**
+     * File stream getter.
+     *
+     * @return stream|boolean
+     */
+	public function getFile()
+    {
+        if (!$this->_oFile){
+            return $this->_oFile;
+        }
+
+        return false;
+    }
 	
 	
 	
@@ -89,9 +117,12 @@ class imva_services_fileservice extends oxUbase
 	 * @param string $sContent
 	 * @param object $sPath
 	 */
-	public function writeFile($sContent)
+	public function writeFile($content)
 	{
-		fwrite($this->_oFile,$sContent);
+		fwrite(
+            $this->getFile(),
+            $content
+        );
 	}
 	
 	
@@ -105,6 +136,6 @@ class imva_services_fileservice extends oxUbase
 	 */
 	public function __destruct()
 	{
-		fclose($this->_oFile);
+		fclose($this->getFile());
 	}
 }

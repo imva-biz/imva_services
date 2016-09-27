@@ -53,18 +53,28 @@
 
 $sLangName	=	'English';
 $aLang		=	array(
-		'charset'										=>	'UTF-8',
-		
-		// Group
-		'imva_modules_group'							=>	'imva.biz modules',
-	
-		// Titles
-		'imva_services_menu'							=>	'Core module',
-		'imva_services_information'						=>	'Information',
-		'imva_services_settings'						=>	'Settings',
-		'imva_services_run'								=>	'Run',
-		
-		// Admin
-		'imva_services_admin_title'						=>	'imva.biz Core Module with Services',
-		'imva_services_admin_desc'						=>	'This module...',
+    'charset'										=>	'UTF-8',
+
+    // Group
+    'imva_modules_group'							=>	'imva.biz modules',
+
+    // Titles
+    'imva_services'							        =>	'Module Services',
+    'imva_services_menu'							=>	'Core module',
+    'imva_services_information'						=>	'Information',
+    'imva_services_settings'						=>	'Settings',
+    'imva_services_run'								=>	'Run',
+
+    // Admin
+    'imva_services_admin_title'						=>	'imva.biz Core Module with Services',
+    'imva_services_admin_desc'						=>	'This module...',
+
+    // Settings
+    'SHOP_MODULE_GROUP_main'                        =>  'Main group',
+    'SHOP_MODULE_imva_services_logger_level'        =>  'Loglevel',
+    'SHOP_MODULE_imva_services_logger_level_0'      =>  '-off-',
+    'SHOP_MODULE_imva_services_logger_level_1'      =>  'Errors',
+    'SHOP_MODULE_imva_services_logger_level_2'      =>  'Errors and warnings',
+    'SHOP_MODULE_imva_services_logger_level_3'      =>  'Errors, warnings and annotations',
+    'SHOP_MODULE_imva_services_logger_level_4'      =>  'everything',
 );
