@@ -60,9 +60,11 @@ class imva_services_setup extends oxModule
     {
         $Db = oxDb::getDb(oxDb::FETCH_MODE_ASSOC);
 
+        /*
         $Db->execute("
             
         ");
+        */
     }
 
     /**

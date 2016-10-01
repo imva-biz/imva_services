@@ -82,7 +82,7 @@ class imva_services_logger extends oxBase
      * @param int Loglevel (0...4)
      * @return boolean
      */
-    public function log($msg, $loglevel = null, $errNumber = null){
+    public function log($message, $loglevel = null, $errNumber = null){
         if ($this->_getLoglevel() == 0){
             return false;
         }
@@ -90,17 +90,13 @@ class imva_services_logger extends oxBase
             $loglevel = 1;
         }
         if ($this->_getLoglevel() >= $loglevel){
-            /*
-            $FileService = oxNew('imva_services_fileservice');
-            $FileService->load(
-                oxRegistry::getConfig()->getConfigParam('sShopDir')
-                .'log/'
-                .$this->getLogfileName()
-            );
-            */
+            if ($loglevel == 1){
+                $this->printMessage($message);
+            }
 
-            $fullMessage = $this->_getLoglevelLabels()[$loglevel].":\t";
-            $fullMessage .= $msg;
+            $fullMessage = date("Y-m-d H:i:s")."\t";
+            $fullMessage .= $this->_getLoglevelLabels()[$loglevel].":\t";
+            $fullMessage .= $message;
             if ($errNumber) {
                 $fullMessage .= ' ('.$errNumber.')';
             }
@@ -129,7 +125,7 @@ class imva_services_logger extends oxBase
 
 
     /**
-     * Set a new logfile name
+     * Set a new logfile name. Use this if you want to use dedicated logfiles for different modules.
      *
      * @param string
      * @return null
@@ -179,6 +175,9 @@ class imva_services_logger extends oxBase
 
     /**
      * Get loglevel from settings
+     *
+     * @param null
+     * @return int
      */
     protected function _getLoglevel()
     {
@@ -187,5 +186,27 @@ class imva_services_logger extends oxBase
         }
 
         return $this->_loglevel;
+    }
+
+
+
+    /**
+     * Print errors on occurrence.
+     *
+     * @param string
+     * @return boolean
+     */
+    public function printMessage($message)
+    {
+        if (oxRegistry::getConfig()->getConfigParam('imva_services_print_errors') and is_string($message))
+        {
+            echo '<span style="background: blue; color: #fff; font-weight: 700; position: absolute; padding: 0.3em;">'
+                .$message
+                .'</span>';
+
+            return true;
+        }
+
+        return false;
     }
 }

@@ -70,12 +70,13 @@ $aModule = [
 					<a href="http://imva.biz/oxid/module/module_services" style="color:#06c; font-weight:bold;">Informationen &uuml;ber diese Erweiterung</a></p>',
 	),
 	'thumbnail'		=> 'out/img/imva-Logo-90.png',
-	'version'		=> '0.5.0',
+	'version'		=> '0.5.1',
 	'author'		=> 'Johannes Ackermann',
 	'url'			=> 'https://imva.biz',
 	'email' 		=> 'imva@imva.biz',
 	'extend'		=> [
-		'oxviewconfig'              =>	'imva.biz/imva_services/core/imva_services_oxviewconfig',
+		// Core ext.
+	    'oxviewconfig'              =>	'imva.biz/imva_services/core/imva_services_oxviewconfig',
 
         // Extended models
         'oxarticle'		            =>	'imva.biz/imva_services/Model/imva_services_oxarticle',
@@ -116,8 +117,15 @@ $aModule = [
             'name'  =>  'imva_services_logger_level',
             'type'  =>  'select',
             'value' =>  '0',
-            'constraints'   => '0|1|2|3|4',
+            'constraints'   =>  '0|1|2|3|4',
             'position'  =>  1
+        ],
+        [
+            'group' =>  'main',
+            'name'  =>  'imva_services_print_errors',
+            'type'  =>  'bool',
+            'value' =>  '0',
+            'position'  =>  2
         ],
     ],
 ];

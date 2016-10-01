@@ -81,4 +81,5 @@ $aLang = array(
     'SHOP_MODULE_imva_services_logger_level_2'      =>  'Fehler und Warnungen',
     'SHOP_MODULE_imva_services_logger_level_3'      =>  'Fehler, Warnungen und Anmerkungen',
     'SHOP_MODULE_imva_services_logger_level_4'      =>  'alles',
+    'SHOP_MODULE_imva_services_print_errors'        =>  'Fehler zur Laufzeit sichtbar ausgeben',
 );

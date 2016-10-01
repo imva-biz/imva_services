@@ -77,4 +77,5 @@ $aLang		=	array(
     'SHOP_MODULE_imva_services_logger_level_2'      =>  'Errors and warnings',
     'SHOP_MODULE_imva_services_logger_level_3'      =>  'Errors, warnings and annotations',
     'SHOP_MODULE_imva_services_logger_level_4'      =>  'everything',
+    'SHOP_MODULE_imva_services_print_errors'        =>  'Output errors in the runtime',
 );

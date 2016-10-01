@@ -46,11 +46,12 @@
  * (c) 2012-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-16/9/21
+ * 13/6/28-16/10/1
  *
  */
 
-class imva_services_main extends oxUbase{
+class imva_services_main extends oxUbase
+{
 
 
 
@@ -60,7 +61,7 @@ class imva_services_main extends oxUbase{
 	 * 
 	 * @return int
 	 */
-	public $build	= 20160926;
+	public $build = 20161001;
 
 
     /**
@@ -81,11 +82,9 @@ class imva_services_main extends oxUbase{
 	public function requestBuild($iBuildNo = null)
 	{
         if ($iBuildNo > $this->build){
-			$msg = 'SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST '
-                .$iBuildNo.' REQUIRED), imva.biz Core Module.';
-            //echo '<span style="background: blue; color: #fff; font-weight: 700; position: absolute; padding: 0.3em;">'.$msg.'</span>';
-            $this->_logToFile(
-                $msg,
+			$this->_logToFile(
+                'SERVICE VERSION OUTDATED (IS '.$this->build.', AT LEAST '
+                    .$iBuildNo.' REQUIRED), imva.biz Core Module.',
                 1,
                 __LINE__
             );

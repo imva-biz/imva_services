@@ -1,7 +1,7 @@
 <?php
 
 /**
- * imva.biz Module Services: OxViewConfig Extension
+ * imva.biz Module Services: oxViewConfig Extension
  * 
  *
  *
@@ -43,11 +43,11 @@
  * 
  * 
  *
- * (c) 2012-2013 imva.biz, Johannes Ackermann, ja@imva.biz
+ * (c) 2012-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-8/2
- * V 0.1.3
+ * 13/6/28-16/10/1
+ * V 0.5.1
  *
  */
 
