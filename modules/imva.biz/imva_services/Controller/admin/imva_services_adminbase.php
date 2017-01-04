@@ -30,8 +30,8 @@
  * (c) 2013-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 14/1/23-16/10/1
- * v 0.5.1
+ * 14/1/23-17/1/4
+ * v 0.5.2
  *
  */
 
@@ -43,7 +43,12 @@ class imva_services_adminbase extends oxAdminView
 
 
     /** @var int Service Build */
-    protected $_requiredServiceBuild = 20161001;
+    protected $_requiredServiceBuild = 20170104;
+
+
+
+    /** @var int Year of initial module creation */
+    protected $_yearOfCreation = 2012;
 
 
 
@@ -130,5 +135,22 @@ class imva_services_adminbase extends oxAdminView
     public function getBuild()
     {
         return $this->getCoreModule()->build;
+    }
+
+
+
+    /**
+     * Returns the copyright year declaration
+     *
+     * @return strin
+     */
+    public function getCopyrightYears()
+    {
+        $currentYear = date("Y");
+        if ($this->_yearOfCreation < $currentYear)
+        {
+            return $this->_yearOfCreation.'-'.$currentYear;
+        }
+        return $currentYear;
     }
 }
