@@ -46,8 +46,8 @@
  * (c) 2012-2017 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-17-1-4
- * V 0.5.2
+ * 13/6/28-17/1/7
+ * V 0.5.2.1
  *
  */
 
@@ -70,7 +70,7 @@ $aModule = [
 					<a href="http://imva.biz/oxid/module/module_services" style="color:#06c; font-weight:bold;">Informationen &uuml;ber diese Erweiterung</a></p>',
 	),
 	'thumbnail'		=> 'out/img/imva-Logo-90.png',
-	'version'		=> '0.5.2',
+	'version'		=> '0.5.2.1',
 	'author'		=> 'Johannes Ackermann',
 	'url'			=> 'https://imva.biz',
 	'email' 		=> 'imva@imva.biz',

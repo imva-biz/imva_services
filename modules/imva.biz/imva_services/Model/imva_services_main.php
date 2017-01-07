@@ -46,7 +46,7 @@
  * (c) 2012-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 13/6/28-16/10/1
+ * 13/6/28-17/1/7
  *
  */
 
@@ -61,7 +61,7 @@ class imva_services_main extends oxUbase
 	 * 
 	 * @return int
 	 */
-	public $build = 20170401;
+	public $build = 20170107;
 
 
     /**
