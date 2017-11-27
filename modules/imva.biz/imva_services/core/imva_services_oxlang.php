@@ -1,7 +1,6 @@
 <?php
-
 /**
- * imva.biz Module Services
+ * imva.biz Module Services: oxLang Extension
  *
  *
  *
@@ -43,41 +42,45 @@
  *
  *
  *
- * (c) 2012-2016 imva.biz, Johannes Ackermann, ja@imva.biz
+ * (c) 2012-2017 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 16/9/22
+ * 13/6/28-16/6/2
+ * V 0.6
  *
  */
 
-/**
- * Class imva_services_oxarticle extends oxArticle
- */
-class imva_services_oxarticle extends imva_services_oxarticle_parent
+class imva_services_oxlang extends imva_services_oxlang_parent
 {
 
 
 
-
     /**
-     * An array of the respective items from the basket. Contains personalized items as well.
+     * Appends Custom language files cust_lang.php. Includes "translations/admin" directories for admin extensions.
      *
-     * @return oxBasketItem[]
+     * @param array     $aLangFiles existing language files
+     * @param string    $sLang      language abbreviation
+     * @param boolean   $blForAdmin add files for admin
+     *
+     * @return string[]
      */
-    public function getRespectiveItemsFromBasket()
+    protected function _appendModuleLangFiles($aLangFiles, $aModulePaths, $sLang, $blForAdmin = false)
     {
-        $basketItems = oxRegistry::getSession()->getBasket()->getContents();
+        // Inherit language file list from parent
+        $aLangFiles = parent::_appendModuleLangFiles($aLangFiles, $aModulePaths, $sLang, $blForAdmin);
 
-        $respectiveItems = [];
-        $i = 0;
-        foreach ($basketItems as $BasketItem)
-        {
-            if ($BasketItem->getArticle()->getId() == $this->getId()){
-                $respectiveItems[$i] = $BasketItem->getArticle();
-                $i++;
+        // Add any language file that is located in "translations/admin/*/*_lang.php.
+        if (is_array($aModulePaths)) {
+            foreach ($aModulePaths as $sPath) {
+                if ($blForAdmin) {
+                    $sFullPath = $this->getConfig()->getModulesDir() . $sPath;
+                    $sFullPath .= '/translations/admin/';
+                    $sFullPath .= $sLang;
+                    $aLangFiles = $this->_appendLangFile($aLangFiles, $sFullPath);
+                }
             }
         }
 
-        return $respectiveItems;
+        return $aLangFiles;
     }
 }

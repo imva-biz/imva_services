@@ -58,13 +58,9 @@ class imva_services_setup extends oxModule
      */
     public static function onActivate()
     {
-        $Db = oxDb::getDb(oxDb::FETCH_MODE_ASSOC);
-
-        /*
-        $Db->execute("
-            
-        ");
-        */
+        // Prepared for later use.
+        //$Db = oxDb::getDb(oxDb::FETCH_MODE_ASSOC);
+        //$Db->execute("");
     }
 
     /**

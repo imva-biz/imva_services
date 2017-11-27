@@ -30,8 +30,8 @@
  * (c) 2013-2016 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  *
- * 14/1/23-17/1/7
- * v 0.5.2.1
+ * 14/1/23-17/6/1
+ * v 0.6
  *
  */
 
@@ -43,7 +43,7 @@ class imva_services_adminbase extends oxAdminView
 
 
     /** @var int Service Build */
-    protected $_requiredServiceBuild = 20170107;
+    protected $_requiredServiceBuild = 20170104;
 
 
 

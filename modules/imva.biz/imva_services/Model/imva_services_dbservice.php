@@ -7,7 +7,7 @@
  * 
  * For redistribution in the provicer's network only.
  *
- * Weitergabe au�erhalb des Anbieternetzwerkes verboten.
+ * Weitergabe außerhalb des Anbieternetzwerkes verboten.
  *
  *
  *
@@ -24,16 +24,16 @@
  *
  *
  * Diese Software ist geistiges Eigentum von imva.biz respektive ihres Autors und ist durch das
- * Urheberrecht gesch�tzt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
+ * Urheberrecht geschützt. Diese Software wird ohne irgendwelche Garantien und "wie sie ist"
  * angeboten.
  *
- * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bed�rfnisse anzupassen.
+ * Sie sind berechtigt, diese Software frei zu nutzen und auf Ihre Bedürfnisse anzupassen.
  *
- * Jegliche Modifikation, Vervielf�ltigung, Redistribution, �bertragung zum Zwecke der
- * Weiterentwicklung au�erhalb der Netzwerke des Anbieters ist untersagt und stellt einen Versto�
+ * Jegliche Modifikation, Vervielfältigung, Redistribution, Übertragung zum Zwecke der
+ * Weiterentwicklung außerhalb der Netzwerke des Anbieters ist untersagt und stellt einen Verstoß
  * gegen die Lizenzvereinbarung dar.
  *
- * Mit der �bernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
+ * Mit der Übernahme dieser Software akzeptieren Sie die zwischen Ihnen und dem Herausgeber
  * festgehaltenen Bedingungen. Der Bruch dieser Bedingungen kann Schadensersatzforderungen nach
  * sich ziehen.
  *
@@ -46,16 +46,19 @@
  * (c) 2013-2014 imva.biz, Johannes Ackermann, ja@imva.biz
  * @author Johannes Ackermann
  * 
- * 14/1/24-2/12
- * V 0.2
+ * 14/1/24-17/6/1
+ * V 0.6
  * 
  */
 
 class imva_services_dbservice extends oxI18n
 {	
 
-	protected $_sClassName = 'imva_services_dbservice'; // Name of this class
-	protected $_sCoreTable = 'imva_config'; // Table Name
+	/** @var string Name of this class */
+    protected $_sClassName = 'imva_services_dbservice';
+
+    /** @var string Table Name */
+	protected $_sCoreTable = 'imva_config';
     
 	
 	
@@ -77,19 +80,32 @@ class imva_services_dbservice extends oxI18n
 	 * Simply counts appearances of rows with a certain value for a field.
 	 * Super-simple mode: have set the table before and just call with a value.
 	 *
-	 * @param string
-	 * @return int
+	 * @param string field
+     * @param string value
+	 * @return int amount
 	 */
 	public function countValuedSets($sField,$sValue){
-		$sSqlRequest = "SELECT COUNT(*) FROM `".$this->sTable."` WHERE `".$sField."` = '.$sValue.'";
-		$oReq = oxDb::getDb(true)->execute($sSqlRequest);
+		$oReq = oxDb::getDb(oxDb::FETCH_MODE_NUM)->execute(
+            "SELECT COUNT(*) FROM `".$this->sTable."` WHERE `".$sField."` = ?;",
+            [$sValue]
+        );
 		$sRet = $oReq->fields[0];
 		
 		return $sRet;
 	}
+
+    /**
+     * Simply counts appearances of rows with a certain value for a preset field.
+     * Super-simple mode: have set the table before and just call with a value.
+     *
+     * @param string field
+     * @return int amount
+     */
 	public function countSets($sValue){
-		$sSqlRequest = "SELECT COUNT(*) FROM `".$this->_sTable."` WHERE `".$this->_sField."` = '.$sValue.'";
-		$oReq = oxDb::getDb(true)->execute($sSqlRequest);
+		$oReq = oxDb::getDb(oxDb::FETCH_MODE_NUM)->execute(
+            "SELECT COUNT(*) FROM `".$this->_sTable."` WHERE `".$this->_sField."` = ?;",
+            [$sValue]
+        );
 		$sRet = $oReq->fields[0];
 		
 		return $sRet;
