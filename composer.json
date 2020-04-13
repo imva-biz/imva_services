@@ -1,0 +1,28 @@
+{
+  "name": "imva-biz/oxid-services",
+  "version": "2.7.0",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop"],
+  "homepage": "https://imva.biz",
+  "license": [
+    "non-free"
+  ],
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "documentation/**/*.*",
+        "Readme.md"
+      ],
+      "target-directory": "imva.biz/services"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "oxid-esales/oxideshop-ce": ">=6.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Imva\\OxidServices\\": "."
+    }
+  }
+}
