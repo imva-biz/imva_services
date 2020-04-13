@@ -35,7 +35,7 @@
  * 13/6/28-20/3/29
  */
 
-namespace \Imva\OxidServices\Service;
+namespace Imva\OxidServices\Service;
 
 class File
 {
